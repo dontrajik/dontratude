@@ -11,7 +11,7 @@
             <ColumnDefinition Width="169*"/>
             <ColumnDefinition Width="623*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DataGridXAML" Margin="10,10,10,106" Grid.ColumnSpan="2">
+        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,106" Grid.ColumnSpan="2">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader }">
                     <Setter Property="Background" Value="Gray"/>

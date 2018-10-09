@@ -47,7 +47,7 @@ namespace DataGridTest
                 PlayerPoint = NewPlayerPoint_TB.Text
             };
             ID++;
-            DataGridXAML.Items.Add(temp);
+            XAMLDataGrid.Items.Add(temp);
             NewPlayerPoint_TB.Text = "";
             NewPlayerName_TB.Text = "";
             NewPlayerName_TB.Focus();
@@ -67,12 +67,12 @@ namespace DataGridTest
 
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
-            string Path = @"C:\Users\hercs\Desktop\save.txt";
+            string Path = @"D:\VisualStudio\DataGridTest\save.txt";
             string myString = "asdElMagad";
             File.AppendAllText(Path, myString); 
             System.Windows.MessageBox.Show("ANYÉD");
-            //DataGridXAML.
             
+            //asd
         }
     }
 }
