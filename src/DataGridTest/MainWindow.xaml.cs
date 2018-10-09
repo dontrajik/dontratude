@@ -71,7 +71,7 @@ namespace DataGridTest
             string myString = "asdElMagad";
             File.AppendAllText(Path, myString); 
             System.Windows.MessageBox.Show("ANYÉD");
-            DataGridXAML.
+            //DataGridXAML.
             
         }
     }
