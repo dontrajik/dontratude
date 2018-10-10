@@ -60,11 +60,12 @@ namespace DataGridTest
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
             string Path = @"C:\Users\molnar.mark\Desktop\datagridTest.txt";
-            for (int i = 0; i < XAMLDataGrid.Items.Count; i++)
+            
+            foreach (var item in XAMLDataGrid.Items)
             {
-                Player player = (Player)XAMLDataGrid.Items[i];
-                string playerInfo = player.PlayerID + " " + player.PlayerName + " " + player.PlayerPoint + "\r\n";
-                File.AppendAllText(Path,playerInfo);
+                Player player = (Player)item;
+                string playerInfo = string.Format("{0} {1} {2} \r\n", player.PlayerID, player.PlayerName, player.PlayerPoint);
+                File.AppendAllText(Path, playerInfo);
             }
         }
     }
