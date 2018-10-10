@@ -30,8 +30,8 @@ namespace DataGridTest
         public class Player
         {
             public int PlayerID { get; set; }
+            public int PlayerPoint { get; set; }
             public string PlayerName { get; set; }
-            public string PlayerPoint { get; set; }
         }
 
         private void NewPlayer_BN_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace DataGridTest
             {
                 PlayerID = ID,
                 PlayerName = NewPlayerName_TB.Text,
-                PlayerPoint = NewPlayerPoint_TB.Text
+                PlayerPoint = int.Parse(NewPlayerPoint_TB.Text)
             };
             ID++;
             XAMLDataGrid.Items.Add(temp);
