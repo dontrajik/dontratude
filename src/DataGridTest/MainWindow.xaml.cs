@@ -55,7 +55,7 @@ namespace DataGridTest
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
             string Path = @"C:\Users\molnar.mark\Desktop\datagridTest.txt";
-
+            File.WriteAllText(Path, string.Empty);
             foreach (var item in XAMLDataGrid.Items)
             {
                 Player player = (Player)item;
@@ -71,6 +71,11 @@ namespace DataGridTest
         private void Btn_click_deleteData(object sender, RoutedEventArgs e)
         {
             XAMLDataGrid.Items.Clear();
+        }
+
+        private void Btn_click_deletePlayer(object sender, RoutedEventArgs e)
+        {
+            //XAMLDataGrid.CurrentCell.Item.ToString();
         }
     }
 }

@@ -36,6 +36,7 @@
         <Button x:Name="Save_BN" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="156,318,0,0" Height="51" Click="Save_BN_Click" Grid.Column="1"/>
         <DataGrid HorizontalAlignment="Left" Height="100" Margin="384,-92,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
         <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="309,318,0,0" Height="51" Click="Btn_click_deleteData" Grid.Column="1"/>
+        <Button x:Name="btn_deletePlayer" Content="Játékos törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="431,318,0,0" Height="51" Click="Btn_click_deletePlayer" Grid.Column="1"/>
 
     </Grid>
 </Window>
