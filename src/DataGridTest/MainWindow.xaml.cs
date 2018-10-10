@@ -78,7 +78,8 @@ namespace DataGridTest
 
         private void Btn_click_deletePlayer(object sender, RoutedEventArgs e)
         {
-            //XAMLDataGrid.CurrentCell.Item.ToString();
+            Player playerData = (Player)XAMLDataGrid.SelectedValue;
+            XAMLDataGrid.Items.Remove(playerData);
         }
     }
 }
