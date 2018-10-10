@@ -54,7 +54,10 @@ namespace DataGridTest
 
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
-            string Path = @"C:\Users\molnar.mark\Desktop\datagridTest.txt";
+            string userDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string fileName = "DontraTudeSavingFile.txt";
+            string Path = string.Format(@"{0}\\{1}", userDesktop, fileName);
+
             File.WriteAllText(Path, string.Empty);
             foreach (var item in XAMLDataGrid.Items)
             {
