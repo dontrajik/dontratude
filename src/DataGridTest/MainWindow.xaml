@@ -5,13 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridTest"
         mc:Ignorable="d"
-        Title="DontraTude" Height="450" Width="800">
+        Title="DontraTude" Height="408" Width="618.032">
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="169*"/>
-            <ColumnDefinition Width="623*"/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,106" Grid.ColumnSpan="2">
+        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,66">
+            
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader }">
                     <Setter Property="Background" Value="Gray"/>
@@ -21,22 +19,23 @@
                 </Style>
             </DataGrid.Resources>
 
-
-
-
             <DataGrid.Columns>
                 <DataGridTextColumn SortDirection="Ascending" Header="ID" Width="AUTO" Binding="{Binding PlayerID}"/>
                 <DataGridTextColumn Header="Név" Width="250" Binding="{Binding PlayerName}"/>
                 <DataGridTextColumn SortDirection="Descending" Header="Pontszám" Binding="{Binding PlayerPoint}" />
             </DataGrid.Columns>
+            
         </DataGrid>
-        <Button x:Name="NewPlayer_BN" Content="Új játékos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,318,0,0" Height="51" Click="NewPlayer_BN_Click"/>
-        <TextBox x:Name="NewPlayerName_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="205" Margin="115,318,0,0" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="NewPlayerPoint_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="205" Margin="115,346,0,0" KeyDown="NewPlayerPoint_TB_KeyDown" Grid.ColumnSpan="2"/>
-        <Button x:Name="Save_BN" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="156,318,0,0" Height="51" Click="Save_BN_Click" Grid.Column="1"/>
-        <DataGrid HorizontalAlignment="Left" Height="100" Margin="384,-92,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
-        <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="309,318,0,0" Height="51" Click="Btn_click_deleteData" Grid.Column="1"/>
-        <Button x:Name="btn_deletePlayer" Content="Játékos törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="431,318,0,0" Height="51" Click="Btn_click_deletePlayer" Grid.Column="1"/>
+        
+        
+        
+        <Button x:Name="NewPlayer_BN" Content="Új játékos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,316,0,0" Height="51" Click="NewPlayer_BN_Click"/>
+        <TextBox x:Name="NewPlayerName_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,316,0,0"/>
+        <TextBox x:Name="NewPlayerPoint_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,344,0,0" KeyDown="NewPlayerPoint_TB_KeyDown"/>
+        <Button x:Name="Save_BN" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="290,316,0,0" Height="51" Click="Save_BN_Click"/>
+        <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="395,316,0,0" Height="51" Click="Btn_click_deleteData"/>
+        <Button x:Name="btn_deletePlayer" Content="Játékos törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="500,316,0,0" Height="51" Click="Btn_click_deletePlayer"/>
 
     </Grid>
+    
 </Window>
