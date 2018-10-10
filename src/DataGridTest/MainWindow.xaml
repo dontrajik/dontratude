@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="DontraTude" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="169*"/>
@@ -35,6 +35,7 @@
         <TextBox x:Name="NewPlayerPoint_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="205" Margin="115,346,0,0" KeyDown="NewPlayerPoint_TB_KeyDown" Grid.ColumnSpan="2"/>
         <Button x:Name="Save_BN" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="156,318,0,0" Height="51" Click="Save_BN_Click" Grid.Column="1"/>
         <DataGrid HorizontalAlignment="Left" Height="100" Margin="384,-92,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+        <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="309,318,0,0" Height="51" Click="Btn_click_deleteData" Grid.Column="1"/>
 
     </Grid>
 </Window>

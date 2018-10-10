@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
+using MessageBox = System.Windows.MessageBox;
 
 namespace DataGridTest
 {
@@ -27,13 +28,6 @@ namespace DataGridTest
         int ID = 1;
         public int ID1 { get => ID; set => ID = value; }
 
-        public class Player
-        {
-            public int PlayerID { get; set; }
-            public int PlayerPoint { get; set; }
-            public string PlayerName { get; set; }
-        }
-
         private void NewPlayer_BN_Click(object sender, RoutedEventArgs e)
         {
             Player temp = new Player
@@ -42,6 +36,7 @@ namespace DataGridTest
                 PlayerName = NewPlayerName_TB.Text,
                 PlayerPoint = int.Parse(NewPlayerPoint_TB.Text)
             };
+
             ID++;
             XAMLDataGrid.Items.Add(temp);
             NewPlayerPoint_TB.Text = "";
@@ -60,13 +55,22 @@ namespace DataGridTest
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
             string Path = @"C:\Users\molnar.mark\Desktop\datagridTest.txt";
-            
+
             foreach (var item in XAMLDataGrid.Items)
             {
                 Player player = (Player)item;
                 string playerInfo = string.Format("{0} {1} {2} \r\n", player.PlayerID, player.PlayerName, player.PlayerPoint);
                 File.AppendAllText(Path, playerInfo);
             }
+            if (XAMLDataGrid.Items.Count == 0)
+                MessageBox.Show("Üres dokumentumot nemlehet menteni! \r\nElőször adj hozzá Játékosokat!");
+            else
+                MessageBox.Show("Dokumentum mentve!");
+        }
+
+        private void Btn_click_deleteData(object sender, RoutedEventArgs e)
+        {
+            XAMLDataGrid.Items.Clear();
         }
     }
 }
