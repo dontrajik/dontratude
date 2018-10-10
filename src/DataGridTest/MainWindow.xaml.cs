@@ -17,9 +17,6 @@ using System.IO;
 
 namespace DataGridTest
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,7 +25,6 @@ namespace DataGridTest
             NewPlayerName_TB.Focus();
         }
         int ID = 1;
-        
         public int ID1 { get => ID; set => ID = value; }
 
         public class Player
@@ -51,10 +47,7 @@ namespace DataGridTest
             NewPlayerPoint_TB.Text = "";
             NewPlayerName_TB.Text = "";
             NewPlayerName_TB.Focus();
-            
         }
-
-
 
         private void NewPlayerPoint_TB_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
@@ -62,17 +55,17 @@ namespace DataGridTest
             {
                 NewPlayer_BN_Click(this, e);
             }
-        
         }
 
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
-            string Path = @"D:\VisualStudio\DataGridTest\save.txt";
-            string myString = "asdElMagad";
-            File.AppendAllText(Path, myString); 
-            System.Windows.MessageBox.Show("ANYÉD");
-            
-            //asd
+            string Path = @"C:\Users\molnar.mark\Desktop\datagridTest.txt";
+            for (int i = 0; i < XAMLDataGrid.Items.Count; i++)
+            {
+                Player player = (Player)XAMLDataGrid.Items[i];
+                string playerInfo = player.PlayerID + " " + player.PlayerName + " " + player.PlayerPoint + "\r\n";
+                File.AppendAllText(Path,playerInfo);
+            }
         }
     }
 }
