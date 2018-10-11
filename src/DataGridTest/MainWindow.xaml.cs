@@ -14,11 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Office.Interop.Excel;
 using MessageBox = System.Windows.MessageBox;
 
 namespace DataGridTest
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         public MainWindow()
         {
@@ -84,6 +85,32 @@ namespace DataGridTest
         {
             Player playerData = (Player)XAMLDataGrid.SelectedValue;
             XAMLDataGrid.Items.Remove(playerData);
+        }
+
+        private void Btn_savexls_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+
+            Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+            Range range;
+            Range myrange;
+            for (int i = 0; i < XAMLDataGrid.Columns.Count; i++)
+            {
+                range = (Range)sheet1.Cells[1, i + 1];
+                sheet1.Cells[1, 1 + 1].Font.Bold = true;
+                range.Value = XAMLDataGrid.Columns[i].Header;
+
+                for (int j = 0; j < XAMLDataGrid.Items.Count; j++)
+                {
+                    TextBlock b = XAMLDataGrid.Columns[i].GetCellContent(XAMLDataGrid.Items[j]) as TextBlock;
+                    myrange = sheet1.Cells[j + 2, i + 1];
+                    myrange.Value = b.Text;
+                }
+            }
+
+            workbook.SaveAs("DataGridTest");
+            workbook.Close();
         }
     }
 }

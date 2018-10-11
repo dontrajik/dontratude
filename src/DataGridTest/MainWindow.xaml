@@ -32,9 +32,10 @@
         <Button x:Name="NewPlayer_BN" Content="Új játékos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,316,0,0" Height="51" Click="NewPlayer_BN_Click"/>
         <TextBox x:Name="NewPlayerName_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,316,0,0"/>
         <TextBox x:Name="NewPlayerPoint_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,344,0,0" KeyDown="NewPlayerPoint_TB_KeyDown"/>
-        <Button x:Name="Save_BN" Content="Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="290,316,0,0" Height="51" Click="Save_BN_Click"/>
+        <Button x:Name="Save_BN" Content=".txt Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="290,316,0,0" Height="23" Click="Save_BN_Click"/>
         <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="395,316,0,0" Height="51" Click="Btn_click_deleteData"/>
         <Button x:Name="btn_deletePlayer" Content="Játékos törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="500,316,0,0" Height="51" Click="Btn_click_deletePlayer"/>
+        <Button x:Name="btn_savexls" Content=".xls Mentés" HorizontalAlignment="Left" Height="23" Margin="290,344,0,0" VerticalAlignment="Top" Width="100" Click="Btn_savexls_Click"/>
 
     </Grid>
     
