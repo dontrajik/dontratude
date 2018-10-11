@@ -30,18 +30,22 @@ namespace DataGridTest
 
         private void NewPlayer_BN_Click(object sender, RoutedEventArgs e)
         {
-            Player temp = new Player
+            if (NewPlayerPoint_TB.Text != string.Empty && NewPlayerName_TB.Text != string.Empty)
             {
-                PlayerID = ID,
-                PlayerName = NewPlayerName_TB.Text,
-                PlayerPoint = int.Parse(NewPlayerPoint_TB.Text)
-            };
-
-            ID++;
-            XAMLDataGrid.Items.Add(temp);
-            NewPlayerPoint_TB.Text = "";
-            NewPlayerName_TB.Text = "";
-            NewPlayerName_TB.Focus();
+                Player temp = new Player
+                {
+                    PlayerID = ID,
+                    PlayerName = NewPlayerName_TB.Text,
+                    PlayerPoint = int.Parse(NewPlayerPoint_TB.Text)
+                };
+                ID++;
+                XAMLDataGrid.Items.Add(temp);
+                NewPlayerPoint_TB.Text = "";
+                NewPlayerName_TB.Text = "";
+                NewPlayerName_TB.Focus();
+            }
+            else
+                MessageBox.Show("Nem adtál meg játékosnevet és pontszámot!");
         }
 
         private void NewPlayerPoint_TB_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
