@@ -17,6 +17,16 @@ using System.IO;
 using Microsoft.Office.Interop.Excel;
 using MessageBox = System.Windows.MessageBox;
 
+/*
+TODO:
+Save as... button for XLSX
+Save as... button for txt
+Load data from XLSX
+Load data from txt
+
+*/
+
+
 namespace DataGridTest
 {
     public partial class MainWindow : System.Windows.Window
@@ -59,21 +69,7 @@ namespace DataGridTest
 
         private void Save_BN_Click(object sender, RoutedEventArgs e)
         {
-            string userDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string fileName = "DontraTudeSavingFile.txt";
-            string Path = string.Format(@"{0}\\{1}", userDesktop, fileName);
-
-            File.WriteAllText(Path, string.Empty);
-            foreach (var item in XAMLDataGrid.Items)
-            {
-                Player player = (Player)item;
-                string playerInfo = string.Format("{0} {1} {2} \r\n", player.PlayerID, player.PlayerName, player.PlayerPoint);
-                File.AppendAllText(Path, playerInfo);
-            }
-            if (XAMLDataGrid.Items.Count == 0)
-                MessageBox.Show("Üres dokumentumot nemlehet menteni! \r\nElőször adj hozzá Játékosokat!");
-            else
-                MessageBox.Show("Dokumentum mentve!");
+            TxtExporter.saveToDesktop(XAMLDataGrid);
         }
 
         private void Btn_click_deleteData(object sender, RoutedEventArgs e)
@@ -89,28 +85,7 @@ namespace DataGridTest
 
         private void Btn_savexls_Click(object sender, RoutedEventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-
-            Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
-            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
-            Range range;
-            Range myrange;
-            for (int i = 0; i < XAMLDataGrid.Columns.Count; i++)
-            {
-                range = (Range)sheet1.Cells[1, i + 1];
-                sheet1.Cells[1, 1 + 1].Font.Bold = true;
-                range.Value = XAMLDataGrid.Columns[i].Header;
-
-                for (int j = 0; j < XAMLDataGrid.Items.Count; j++)
-                {
-                    TextBlock b = XAMLDataGrid.Columns[i].GetCellContent(XAMLDataGrid.Items[j]) as TextBlock;
-                    myrange = sheet1.Cells[j + 2, i + 1];
-                    myrange.Value = b.Text;
-                }
-            }
-
-            workbook.SaveAs("DataGridTest");
-            workbook.Close();
+            ExcelExporter.SaveToDesktop(XAMLDataGrid);
         }
     }
 }
