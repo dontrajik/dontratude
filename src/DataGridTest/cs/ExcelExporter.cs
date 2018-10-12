@@ -22,8 +22,16 @@ namespace DataGridTest
 {
     class ExcelExporter
     {
-        public static void SaveToDesktop(DataGrid XAMLDataGrid)
+        public static void SaveAs(DataGrid XAMLDataGrid)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            string myAss = string.Empty;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                myAss = saveFileDialog.FileName;
+            }
+
             Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
             Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
@@ -45,7 +53,7 @@ namespace DataGridTest
                     myrange.Value = b.Text;
                 }
             }
-            workbook.SaveAs("DataGridTest");
+            workbook.SaveAs(myAss);
             workbook.Close();
         }
 

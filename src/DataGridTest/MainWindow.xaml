@@ -36,9 +36,8 @@
         <TextBox x:Name="NewPlayerPoint_TB" TextWrapping="Wrap" Margin="121,0,325,6" KeyDown="NewPlayerPoint_TB_KeyDown" Height="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <Button x:Name="btn_deleteData" Content="Adatok törlése" Margin="0,0,115,6" Click="Btn_click_deleteData" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Grid.Column="1"/>
         <Button x:Name="btn_deletePlayer" Content="Játékos törlése" Margin="10,0,0,6" Click="Btn_click_deletePlayer" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="-4.31,0.783" HorizontalAlignment="Left" Width="106"/>
-        <Button x:Name="btn_savexls" Content="Mentés" Margin="0,0,220,34" Click="Btn_savexls_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
+        <Button x:Name="btn_savexls" Content="Mentés" Margin="0,0,220,6" Click="Btn_savexls_Click" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
         <Button x:Name="btn_loadxls" Content=".xls Betöltése" Margin="0,0,10,6" Click="btn_loadxls_Click" HorizontalAlignment="Right" Width="100" Height="51" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_saveas" Content="Mentés Másként" Margin="0,0,220,6" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
 
     </Grid>
 
