@@ -5,38 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridTest"
         mc:Ignorable="d"
-        Title="DontraTude" Height="408" Width="618.032">
-    
+        Title="DontraTude" Height="422" Width="599.032">
+        
     <Grid>
-        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,66">
-            
+        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,62" SelectionChanged="XAMLDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader }">
                     <Setter Property="Background" Value="Gray"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn SortDirection="Ascending" Header="ID" Width="AUTO" Binding="{Binding PlayerID}"/>
-                <DataGridTextColumn Header="Név" Width="250" Binding="{Binding PlayerName}"/>
+                <DataGridTextColumn SortDirection="Ascending" Header="ID" MinWidth="25" Width="AUTO" Binding="{Binding PlayerID}"/>
+                <DataGridTextColumn Header="Név" Width="*" Binding="{Binding PlayerName}"/>
                 <DataGridTextColumn SortDirection="Descending" Header="Pontszám" Binding="{Binding PlayerPoint}" />
             </DataGrid.Columns>
-            
+
         </DataGrid>
-        
-        
-        
-        <Button x:Name="NewPlayer_BN" Content="Új játékos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,316,0,0" Height="51" Click="NewPlayer_BN_Click"/>
-        <TextBox x:Name="NewPlayerName_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,316,0,0"/>
-        <TextBox x:Name="NewPlayerPoint_TB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Margin="115,344,0,0" KeyDown="NewPlayerPoint_TB_KeyDown"/>
-        <Button x:Name="Save_BN" Content=".txt Mentés" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="290,316,0,0" Height="23" Click="Save_BN_Click"/>
-        <Button x:Name="btn_deleteData" Content="Adatok törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="395,316,0,0" Height="51" Click="Btn_click_deleteData"/>
-        <Button x:Name="btn_deletePlayer" Content="Játékos törlése" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="500,316,0,0" Height="51" Click="Btn_click_deletePlayer"/>
-        <Button x:Name="btn_savexls" Content=".xls Mentés" HorizontalAlignment="Left" Height="23" Margin="290,344,0,0" VerticalAlignment="Top" Width="100" Click="Btn_savexls_Click"/>
+
+
+
+        <Button x:Name="NewPlayer_BN" Content="Új játékos" Margin="10,0,0,34" Click="NewPlayer_BN_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="106"/>
+        <TextBox x:Name="NewPlayerName_TB" TextWrapping="Wrap" Margin="121,0,325,34" Height="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="NewPlayerPoint_TB" TextWrapping="Wrap" Margin="121,0,325,6" KeyDown="NewPlayerPoint_TB_KeyDown" Height="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_deleteData" Content="Adatok törlése" Margin="0,0,115,6" Click="Btn_click_deleteData" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Grid.Column="1"/>
+        <Button x:Name="btn_deletePlayer" Content="Játékos törlése" Margin="10,0,0,6" Click="Btn_click_deletePlayer" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="-4.31,0.783" HorizontalAlignment="Left" Width="106"/>
+        <Button x:Name="btn_savexls" Content=".xls Mentés" Margin="0,0,220,6" Click="Btn_savexls_Click" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Grid.Column="1"/>
+        <Button x:Name="btn_loadxls" Content=".xls Betöltése" Margin="0,0,10,6" Click="btn_loadxls_Click" HorizontalAlignment="Right" Width="100" Height="51" VerticalAlignment="Bottom"/>
 
     </Grid>
-    
+
 </Window>

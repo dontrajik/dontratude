@@ -49,5 +49,9 @@ namespace DataGridTest
             workbook.Close();
         }
 
+        public static void LoadFromExcel(DataGrid XAMLDataGrid)
+        {
+            
+        }
     }
 }

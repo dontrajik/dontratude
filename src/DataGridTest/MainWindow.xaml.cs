@@ -87,5 +87,10 @@ namespace DataGridTest
         {
             ExcelExporter.SaveToDesktop(XAMLDataGrid);
         }
+
+        private void btn_loadxls_Click(object sender, RoutedEventArgs e)
+        {
+            ExcelExporter.LoadFromExcel(XAMLDataGrid);
+        }
     }
 }
