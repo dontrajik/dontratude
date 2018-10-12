@@ -66,12 +66,7 @@ namespace DataGridTest
                 NewPlayer_BN_Click(this, e);
             }
         }
-
-        private void Save_BN_Click(object sender, RoutedEventArgs e)
-        {
-            TxtExporter.saveToDesktop(XAMLDataGrid);
-        }
-
+        
         private void Btn_click_deleteData(object sender, RoutedEventArgs e)
         {
             XAMLDataGrid.Items.Clear();
