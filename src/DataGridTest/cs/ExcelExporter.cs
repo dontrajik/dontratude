@@ -47,6 +47,8 @@ namespace DataGridTest
             }
             workbook.SaveAs("DataGridTest");
             workbook.Close();
+            System.Windows.Forms.MessageBox.Show("Mentve!");
+            XAMLDataGrid.Focus();
         }
 
         public static void LoadFromExcel(DataGrid XAMLDataGrid)
@@ -58,6 +60,25 @@ namespace DataGridTest
             
             Workbook workbook = excel.Workbooks.Open(LoadedFile);
             Worksheet sheet = (Worksheet)workbook.Sheets[1];
+
+            
+            int db = 0;
+            while (sheet.Cells[db + 2, 1].value != null)
+            {
+                db++;
+            }
+            for (int i = 0; i < db; i++)
+            {
+                Player temp = new Player
+                {
+                    PlayerID = (int)sheet.Cells[i + 2, 1].value,
+                    PlayerName = (string)sheet.Cells[i+2,2].value,
+                    PlayerPoint = (int)sheet.Cells[i+2,3].value
+                };
+                XAMLDataGrid.Items.Add(temp);
+            }
+            excel.Application.Quit();
+            System.Windows.Forms.MessageBox.Show("Adatok Betöltve!");
         }
     }
 }
