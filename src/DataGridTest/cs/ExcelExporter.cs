@@ -51,7 +51,13 @@ namespace DataGridTest
 
         public static void LoadFromExcel(DataGrid XAMLDataGrid)
         {
+            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            string LoadedFile = ofd.FileName;
             
+            Workbook workbook = excel.Workbooks.Open(LoadedFile);
+            Worksheet sheet = (Worksheet)workbook.Sheets[1];
         }
     }
 }

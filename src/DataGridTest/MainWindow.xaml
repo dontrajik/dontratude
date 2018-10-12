@@ -8,7 +8,7 @@
         Title="DontraTude" Height="436" Width="599.032">
 
     <Grid>
-        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,62" SelectionChanged="XAMLDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+        <DataGrid x:Name="XAMLDataGrid" Margin="10,10,10,62" Grid.ColumnSpan="2">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader }">
