@@ -25,36 +25,41 @@ namespace DataGridTest
         public static void SaveAs(DataGrid XAMLDataGrid)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            string myAss = string.Empty;
+            string saveFilePath = string.Empty;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                myAss = saveFileDialog.FileName;
-            }
+                saveFilePath = saveFileDialog.FileName;
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
+                Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
 
-            Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
-            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+                Range range;
+                Range myrange;
 
-            Range range;
-            Range myrange;
-
-            for (int i = 0; i < XAMLDataGrid.Columns.Count; i++)
-            {
-                range = (Range)sheet1.Cells[1, i + 1];
-                sheet1.Cells[1, 1 + 1].Font.Bold = true;
-                range.Value = XAMLDataGrid.Columns[i].Header;
-
-                for (int j = 0; j < XAMLDataGrid.Items.Count; j++)
+                for (int i = 0; i < XAMLDataGrid.Columns.Count; i++)
                 {
-                    TextBlock b = XAMLDataGrid.Columns[i].GetCellContent(XAMLDataGrid.Items[j]) as TextBlock;
-                    myrange = sheet1.Cells[j + 2, i + 1];
-                    myrange.Value = b.Text;
+                    range = (Range)sheet1.Cells[1, i + 1];
+                    sheet1.Cells[1, 1 + 1].Font.Bold = true;
+                    range.Value = XAMLDataGrid.Columns[i].Header;
+
+                    for (int j = 0; j < XAMLDataGrid.Items.Count; j++)
+                    {
+                        TextBlock b = XAMLDataGrid.Columns[i].GetCellContent(XAMLDataGrid.Items[j]) as TextBlock;
+                        myrange = sheet1.Cells[j + 2, i + 1];
+                        myrange.Value = b.Text;
+                    }
                 }
+                workbook.SaveAs(saveFilePath);
+                workbook.Close();
             }
-            workbook.SaveAs(myAss);
-            workbook.Close();
+            /*
+            else if(saveFileDialog.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+            */
             System.Windows.Forms.MessageBox.Show("Mentve!");
             XAMLDataGrid.Focus();
         }
