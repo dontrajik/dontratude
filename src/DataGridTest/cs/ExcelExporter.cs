@@ -33,33 +33,27 @@ namespace DataGridTest
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
                 Workbook workbook = excel.Workbooks.Add(System.Reflection.Missing.Value);
-                Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+                Worksheet sheet = (Worksheet)workbook.Sheets[1];
 
-                Range range;
-                Range myrange;
+                //Headers------------------------------------------
+                sheet.Cells[1, 1] = XAMLDataGrid.Columns[0].Header;
+                sheet.Cells[1, 2] = XAMLDataGrid.Columns[1].Header;
+                sheet.Cells[1, 3] = XAMLDataGrid.Columns[2].Header;
+                //-------------------------------------------------
 
-                for (int i = 0; i < XAMLDataGrid.Columns.Count; i++)
+                for (int i = 0; i < XAMLDataGrid.Items.Count; i++)
                 {
-                    range = (Range)sheet1.Cells[1, i + 1];
-                    sheet1.Cells[1, 1 + 1].Font.Bold = true;
-                    range.Value = XAMLDataGrid.Columns[i].Header;
+                    Player temp = (Player)XAMLDataGrid.Items.GetItemAt(i);
 
-                    for (int j = 0; j < XAMLDataGrid.Items.Count; j++)
-                    {
-                        TextBlock b = XAMLDataGrid.Columns[i].GetCellContent(XAMLDataGrid.Items[j]) as TextBlock;
-                        myrange = sheet1.Cells[j + 2, i + 1];
-                        myrange.Value = b.Text;
-                    }
+                    sheet.Cells[i + 2, 1] = temp.PlayerID;
+                    sheet.Cells[i + 2, 2] = temp.PlayerName;
+                    sheet.Cells[i + 2, 3] = temp.PlayerPoint;
                 }
+                
                 workbook.SaveAs(saveFilePath);
                 workbook.Close();
             }
-            /*
-            else if(saveFileDialog.ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
-            */
+            
             System.Windows.Forms.MessageBox.Show("Mentve!");
             XAMLDataGrid.Focus();
         }
